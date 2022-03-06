@@ -72,6 +72,12 @@ https://github.com/rongweihe/CPPNotes/tree/master/STL-source-code-notes
 //有序关联pair容器： 只包含以下类
 #include<set> //基于红黑树实现，有序排列
 #include<map> //基于红黑树实现，有序排列
+// #ifdef __GNUC__
+// #include<ext/hash_map>
+// #else
+// #include<hash_map>
+// #endif
+
 //无序关联pair容器
 #include<unordered_map> //基于hash函数模板，生成桶id，插入到桶内。
 #include<unordered_set> //同上， hash 与 桶接口
@@ -87,8 +93,11 @@ https://github.com/rongweihe/CPPNotes/tree/master/STL-source-code-notes
 #include<numeric>  // 数值集合的 accumulate / reduce / transform/
 #include<functional>  // 仿函数
 
+// 基于时间的随机数
+#include<time.h>
 
 using namespace std;
+//using namespace stdext;
 
 void func_print(int x){
     printf("%d ", x);
@@ -101,6 +110,10 @@ void func_print_str(string x){
 
 int main(int argc, char ** argv){
     //std::cout<<"args count:" << argc << argv[0] <<std::endl;
+    // 支持时间随机数
+    // 初始化时间随机数
+    srand(time(0));
+    cout << rand() << endl;
 
     // string
     string s = "中文";  
